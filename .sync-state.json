@@ -1,7 +1,26 @@
 {
   "version": 2,
-  "synced_ids": [],
-  "problems": {},
-  "tag_counts": {},
-  "last_run": "2026-03-25T01:58:04.628873+00:00"
+  "synced_ids": [
+    "1954342860"
+  ],
+  "problems": {
+    "longest-substring-without-repeating-characters": {
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "questionId": "3",
+      "tags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ],
+      "language": "C#",
+      "date": "2026-03-20"
+    }
+  },
+  "tag_counts": {
+    "Hash Table": 1,
+    "String": 1,
+    "Sliding Window": 1
+  },
+  "last_run": "2026-03-25T02:05:55.692443+00:00"
 }

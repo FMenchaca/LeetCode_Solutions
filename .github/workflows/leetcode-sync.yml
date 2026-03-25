@@ -1,0 +1,63 @@
+name: LeetCode Sync
+
+on:
+  schedule:
+    # 06:00 UTC = midnight CST (Nov-Mar) / 01:00 CDT (Mar-Nov)
+    - cron: "0 6 * * *"
+  workflow_dispatch: # manual trigger from Actions tab
+
+# Prevent parallel runs — if one is already running, queue the next
+concurrency:
+  group: leetcode-sync
+  cancel-in-progress: false
+
+# Minimal permissions — only what's needed to push commits
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Sync LeetCode Submissions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --quiet requests
+
+      - name: Run LeetCode sync
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          LEETCODE_CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+        run: python scripts/sync.py
+
+      - name: Commit and push
+        run: |
+          git config user.name  "leetcode-sync[bot]"
+          git config user.email "leetcode-sync[bot]@users.noreply.github.com"
+
+          git add solutions/ assets/ .sync-state.json
+
+          if git diff --staged --quiet; then
+            echo "Nothing changed — skipping commit."
+          else
+            MSG=$(cat .commit-message.txt 2>/dev/null || echo "chore: sync")
+            git commit -m "$MSG"
+            git push
+            echo "Pushed new commit."
+          fi
+
+      - name: Clean up temp files
+        if: always()
+        run: rm -f .commit-message.txt

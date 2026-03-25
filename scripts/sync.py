@@ -230,7 +230,7 @@ query recentAcSubmissionList($username: String!, $limit: Int!) {
 """
 
 Q_SUBMISSION_DETAILS = """
-query submissionDetails($submissionId: ID!) {
+query submissionDetails($submissionId: Int!) {
   submissionDetails(submissionId: $submissionId) {
     runtime
     runtimePercentile

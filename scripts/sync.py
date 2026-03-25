@@ -68,8 +68,9 @@ LANG_MAP: dict[str, tuple[str, str, str]] = {
     "postgresql":  (".sql",   "PostgreSQL", "dash"),
 }
 
-# Accept ALL languages in LANG_MAP (set to None to accept everything LeetCode returns)
-TARGET_LANGS: set | None = set(LANG_MAP.keys())
+# Accept ALL languages — if LeetCode returns it, we sync it.
+# Unknown slugs fall back to .txt with hash-style comments.
+TARGET_LANGS: set | None = None
 
 # Paths (relative to repo root — the workflow `cd`s there)
 STATE_FILE      = Path(".sync-state.json")
@@ -444,6 +445,18 @@ def main() -> None:
         print("           - No accepted submissions on this account")
     else:
         print(f"  OK     {len(recent)} submission(s) retrieved.")
+        # ── Diagnostic: show every submission the API returned ────────────
+        print("\n  DEBUG  Raw submissions from API:")
+        for s in recent:
+            sid   = s.get("id", "?")
+            stit  = s.get("title", "?")
+            slang = s.get("lang", "?")
+            sts   = s.get("timestamp", "?")
+            in_synced = str(sid) in set(state.get("synced_ids") or [])
+            lang_ok   = (TARGET_LANGS is None or slang in TARGET_LANGS)
+            status    = "SKIP (already synced)" if in_synced else ("SKIP (lang filtered)" if not lang_ok else "NEW")
+            print(f"           [{sid}] {stit}  lang={slang}  ts={sts}  → {status}")
+        print()
 
     # 2 ── Filter to new supported-language submissions ─────────────────────
     synced = set(state.get("synced_ids") or [])

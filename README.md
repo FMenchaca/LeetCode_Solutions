@@ -12,7 +12,7 @@
 
 <br/>
 
-[![Last Sync](https://img.shields.io/github/last-commit/FMenchaca/LeetCode-Solutions?label=last%20sync&style=flat-square&color=FFA116)](https://github.com/FMenchaca/LeetCode-Solutions/commits/main)
+[![Last Sync](https://img.shields.io/github/last-commit/FMenchaca/LeetCode_Solutions?label=last%20sync&style=flat-square&color=FFA116)](https://github.com/FMenchaca/LeetCode_Solutions/commits/main)
 
 </div>
 

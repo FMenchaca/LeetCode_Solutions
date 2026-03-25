@@ -197,6 +197,10 @@ def gql(session: requests.Session, query: str, variables: dict, label: str) -> d
             if resp.status_code == 403:
                 print(f"  ERROR  403 Forbidden on [{label}] — session cookies are likely expired.")
                 return None
+            if resp.status_code >= 400:
+                # Log the response body for debugging (truncated to avoid flooding logs)
+                body_preview = resp.text[:500] if resp.text else "(empty)"
+                print(f"  DEBUG  [{label}] HTTP {resp.status_code} response: {body_preview}")
             resp.raise_for_status()
             body = resp.json()
             if "errors" in body:
@@ -226,8 +230,8 @@ query recentAcSubmissionList($username: String!, $limit: Int!) {
 """
 
 Q_SUBMISSION_DETAILS = """
-query submissionDetails($submissionId: Int!) {
-  submissionDetails(id: $submissionId) {
+query submissionDetails($submissionId: ID!) {
+  submissionDetails(submissionId: $submissionId) {
     runtime
     runtimePercentile
     memory
@@ -265,7 +269,7 @@ def fetch_recent_ac(session: requests.Session) -> list[dict]:
 
 
 def fetch_submission_details(session: requests.Session, sub_id: str) -> dict | None:
-    data = gql(session, Q_SUBMISSION_DETAILS, {"submissionId": int(sub_id)}, f"details/{sub_id}")
+    data = gql(session, Q_SUBMISSION_DETAILS, {"submissionId": str(sub_id)}, f"details/{sub_id}")
     return (data or {}).get("submissionDetails")
 
 

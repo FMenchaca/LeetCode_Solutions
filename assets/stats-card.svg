@@ -9,20 +9,20 @@
   <text x="60" y="54" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">leetcode.com/u/Menchaca</text>
   <line x1="20" y1="80" x2="480" y2="80" stroke="#2D3250"/>
   <text x="20" y="102" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="600" fill="#8B8B8B">SOLVED</text>
-  <text x="80" y="102" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="700" fill="#EBEBF5">2 / 3879</text>
+  <text x="80" y="102" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="700" fill="#EBEBF5">2 / 3887</text>
   <text x="480" y="102" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="normal" fill="#8B8B8B">C#</text>
   <text x="20" y="120" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="12" font-weight="600" fill="#00B8A3">Easy</text>
   <rect x="95" y="113" width="260" height="8" rx="4" fill="#003D36"/>
 <rect x="95" y="113" width="0" height="8" rx="4" fill="#00B8A3"/>
-  <text x="480" y="120" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">1 / 933</text>
+  <text x="480" y="120" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">1 / 935</text>
   <text x="20" y="156" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="12" font-weight="600" fill="#FFC01E">Medium</text>
   <rect x="95" y="149" width="260" height="8" rx="4" fill="#3D3010"/>
 <rect x="95" y="149" width="0" height="8" rx="4" fill="#FFC01E"/>
-  <text x="480" y="156" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">1 / 2030</text>
+  <text x="480" y="156" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">1 / 2033</text>
   <text x="20" y="192" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="12" font-weight="600" fill="#EF4743">Hard</text>
   <rect x="95" y="185" width="260" height="8" rx="4" fill="#3D1010"/>
 <rect x="95" y="185" width="0" height="8" rx="4" fill="#EF4743"/>
-  <text x="480" y="192" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">0 / 916</text>
+  <text x="480" y="192" text-anchor="end" font-family="'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="normal" fill="#8B8B8B">0 / 919</text>
   <text x="20" y="240" text-anchor="start" font-family="'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="600" fill="#8B8B8B">TOP TOPICS</text>
   <rect x="20" y="254" width="107" height="20" rx="10" fill="#2D3250"/>
   <text x="73" y="268" text-anchor="middle" font-family="'Segoe UI',Roboto,sans-serif" font-size="10" fill="#A0A8D0">Hash Table  1</text>
